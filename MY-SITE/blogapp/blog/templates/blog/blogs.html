@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{%block title%}Blogs{%endblock%}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_categories.html' %}
+        </div>
+        <div class="col-9">
+            {% if selected_category|length > 0 %}
+                <h1>{{ selected_category|title}} Blogs</h1>
+                <hr>
+            {% else %}
+                <h1>All Blogs</h1>
+                <hr>
+            {% endif %}
+            {% if blogs|length > 0 %}
+                {% for blog in blogs %}
+                    {% if blog.is_active == True  %}
+                        {%include 'blog/partials/_blog.html'%}
+                    {% endif %}
+                {%endfor%}
+            {% else %}
+                <div class="alert alert-warning">No Blogs</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%}Blog-Details{%endblock%}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h1 class="card-title mb-3" style="text-align:center;">
+                                {{blog.title|title}}                
+                            </h1>
+                            <img src="{{ blog.image.url }}" alt="" class="img-fluid" style="float:left; margin-right:20px; 
+                            margin-battom:20px; width:500px; height:350px;">
+                            <p class="card-text">{{blog.description|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
+{% endblock %}
